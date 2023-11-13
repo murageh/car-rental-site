@@ -1,11 +1,11 @@
-import Image from 'next/image'
 import HeroSection from "@/components/home/hero/HeroSection";
+import SearchSection from "@/components/home/search/SearchSection";
 
 export default function Home() {
-  return (
-    <main className="">
-        <HeroSection/>
-      This is the home page
-    </main>
-  )
+    return (
+        <main className="">
+            <HeroSection/>
+            <SearchSection/>
+        </main>
+    )
 }

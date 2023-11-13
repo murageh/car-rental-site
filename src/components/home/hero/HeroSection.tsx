@@ -18,7 +18,7 @@ const zillaSlab = Zilla_Slab({
 const HeroSection = () => {
     return (
         <section
-            className="relative h-[min(100vh,_900px)] w-full bg-heroBg bg-cover bg-center bg-blend-multiply"
+            className="bg-darkWhite bg-heroBg bg-cover bg-center bg-blend-multiply"
         >
             <div className={'wrapper flex flex-col justify-between items-center'}>
                 {/*  Absolute image in the bottom left corner, with only the right half being visible  */}

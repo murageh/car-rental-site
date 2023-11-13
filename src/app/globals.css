@@ -15,6 +15,12 @@
 body {
 }
 
+body > main > section {
+    position: relative;
+    height: min(100vh, 900px);
+    width: 100%;
+}
+
 body > main > section > div.wrapper {
     position: relative;
     max-width: 1536px;

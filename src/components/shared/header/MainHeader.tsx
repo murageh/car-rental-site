@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
+import {RedButton} from "@/components/shared/inputs/Inputs";
 
 const MainHeader = () => {
     const HeaderLink = ({href, children}: { href: string, children: React.ReactNode }) => {
@@ -29,7 +30,9 @@ const MainHeader = () => {
                 {/*  search icon  */}
                     <Image src={'/icons/search.svg'} alt={'search'} height={20} width={20}/>
                 </button>
-                <button className={'bg-secondary text-white px-4 py-2 rounded ml-4'}>Log In</button>
+                <RedButton>
+                    Log In
+                </RedButton>
             </div>
         </div>
     );
