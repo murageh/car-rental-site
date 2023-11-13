@@ -9,13 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-
+          // heroBg: 'linear-gradient(180deg, rgba(24,24,24,1) 0%, rgba(24,24,24,.8) 35%, rgba(67,68,77,3) 80%, rgba(255,255,255,1) 100%)',
+          heroBg: 'linear-gradient(180deg, rgba(24,24,24,1) 0%, rgba(24,24,24,.8) 35%, rgb(67 68 77 / 74%) 90%, rgba(255,255,255,1) 90%)',
       },
         colors: {
             'primary': '#15131a',
             'secondary': '#F73838',
             'danger': '#F44336',
             'white': '#FFFFFF',
+            'darkWhite': '#f3f3f3',
             'black': '#000000',
             'gray': '#bdbdbd',
             'blueBlack': '#181922',
@@ -53,7 +55,7 @@ const config: Config = {
             pattern: /(w|h)-[0-9]+/
         },
         {
-            pattern: /(w)-[0-9]{1,2}\/12/
+            pattern: /([wh])-[0-9]{1,2}\/12/
         },
         {
             pattern: /(gap|gap-x|gap-y)-[0-9]+/

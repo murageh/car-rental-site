@@ -1,0 +1,48 @@
+@keyframes growProgressBar {
+    0%, 33% {
+        --pgPercentage: 0;
+    }
+    100% {
+        --pgPercentage: var(--value);
+    }
+}
+
+@property --pgPercentage {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+
+@property --offset {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+
+div[role="progressbar"] {
+    --size: 8rem;
+    --fg: #F73838;
+    --bg: #F0F0F0;
+    --pgPercentage: var(--value);
+    --offset: 0;
+    animation: growProgressBar 3s 1 forwards;
+    width: var(--size);
+    height: var(--size);
+    padding: 2rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background: radial-gradient(closest-side, rgba(24,24,24,1) 93%, transparent 0 99.9%, transparent 0),
+    conic-gradient(var(--bg) calc(var(--offset) * 1%), var(--fg) calc(var(--offset) * 1%) calc((var(--offset) * 1%) + (var(--pgPercentage) * 1%)), var(--bg) calc(var(--offset) * 1%));
+    font-size: calc(var(--size) / 5);
+    color: var(--color);
+    text-align: center;
+}
+
+div[role="progressbar"]::before {
+    counter-reset: percentage var(--value);
+    /*content: counter(percentage) '%';*/
+}
