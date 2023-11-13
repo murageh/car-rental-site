@@ -17,8 +17,12 @@ body {
 
 body > main > section {
     position: relative;
-    height: min(100vh, 900px);
+    min-height: min(100vh, 900px);
     width: 100%;
+}
+
+body > main > section.clamp {
+    height: min(100vh, 900px);
 }
 
 body > main > section > div.wrapper {

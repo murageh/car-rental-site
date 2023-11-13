@@ -23,7 +23,7 @@ export const SearchDropdown = ({id, icon, title, options, selected, setSelected}
                 <select
                     id={id}
                     name={id}
-                    className="block w-full py-2 pl-3 pr-10 text-base border-gray-300 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm rounded-md"
+                    className="block w-full py-2 pl-3 pr-10 text-base bg-transparent border-gray-300 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm rounded-md"
                     defaultValue={selected}
                     onChange={e => setSelected(e.target.value)}
                 >
