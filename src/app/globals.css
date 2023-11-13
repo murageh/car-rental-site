@@ -33,3 +33,7 @@ body > main > section > div.wrapper {
     margin-left: auto;
     margin-right: auto;
 }
+
+.balance{
+    text-wrap: balance;
+}

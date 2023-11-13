@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['storage.googleapis.com', 'media.autochek.africa'],
+        domains: ['storage.googleapis.com', 'media.autochek.africa', 'www.w3schools.com'],
     },
 }
 

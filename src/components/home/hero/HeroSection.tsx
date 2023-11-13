@@ -2,7 +2,7 @@ import React from 'react';
 import Image from "next/image";
 
 // images
-import heroImg from '../../../assets/images/backgrounds/kindpng_5805133.png';
+import heroImg from '../../../assets/images/backgrounds/honda.png';
 import MainHeader from "@/components/shared/header/MainHeader";
 import CircularProgressBar from "@/components/shared/progress/CircularProgressBar";
 import {Zilla_Slab} from "next/font/google";

@@ -98,12 +98,7 @@ const FilterSection = () => {
     return (
         <div className="w-full p-y-4 flex flex-col items-center my-6">
             <span className="my-4">Best Services</span>
-            <h2 className="my-4 mx-auto text-3xl font-bold w-6/12 text-center capitalize"
-                style={{
-                    // @ts-ignore
-                    textWrap: 'balance',
-                }}
-            >
+            <h2 className="my-4 mx-auto text-3xl font-bold w-6/12 text-center capitalize balance">
                 Explore our top deals from Top Rated Dealers
             </h2>
 
