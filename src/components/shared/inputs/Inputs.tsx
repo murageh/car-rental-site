@@ -75,3 +75,22 @@ export const RedButton = ({children, onClick}: { children: React.ReactNode, onCl
         >{children}</button>
     );
 }
+
+export const AppleStoreButton = () => {
+    return (
+        <button className="bg-white text-primary px-2 py-2 rounded w-[120px]">
+            <Image src="/icons/app-store.png" alt="app store" layout='fixed' height={310} width={924}
+                   objectFit={'cover'} className={'max-h-full max-w-full object-fill'}/>{' '}
+        </button>
+    );
+}
+
+export const GooglePlayButton = () => {
+    return (
+        <button className="bg-white text-primary px-2 py-2 rounded w-[120px]">
+            <Image src="/icons/google-play.png" alt="google play" layout='fixed' height={546}
+                   width={168}
+                   objectFit={'cover'} className={'max-h-full max-w-full object-fill'}/>
+        </button>
+    );
+}

@@ -25,6 +25,11 @@ body > main > section.clamp {
     height: min(100vh, 900px);
 }
 
+.ignoreMinHeight {
+    height: auto !important;
+    min-height: 0 !important;
+}
+
 body > main > section > div.wrapper {
     position: relative;
     max-width: 1536px;
