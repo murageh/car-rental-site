@@ -1,6 +1,8 @@
 # Car Rental Website
 
 > A website for a car rental company. Design from [Dribble](https://dribbble.com/shots/22583789-Car-Rental-Website)
+>
+> [Live Demo](https://car-rental-site-peach.vercel.app)
 
 ## Getting Started
 
@@ -21,4 +23,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Tech Stack
 
 Next.js 13, Typescript, TailwindCSS, React icons
+
 Testing: Cypress
