@@ -7,7 +7,7 @@ const CallToActionSection = () => {
         <section className="py-12 bg-white flex flex-col justify-center">
             <div className="wrapper w-full flex flex-col justify-center items-center">
                 <div
-                    className={'relative w-11/12 bg-blueBlack rounded-lg py-8 px-16 flex flex-col md:flex-row'}>
+                    className={'relative w-11/12 bg-blueBlack rounded-lg py-8 px-4 md:px-16 flex flex-col md:flex-row'}>
                     <div className={'w-full self-start md:self-center md:w-7/12 h-full p-4'}>
                         <h2 className="text-left text-white my-4 w-full text-5xl font-bold max-w-full">
                             Download the free RentalX app

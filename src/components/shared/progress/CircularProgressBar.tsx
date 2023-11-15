@@ -12,7 +12,7 @@ interface CircularProgressBarProps {
 
 const CircularProgressBar = ({headline, unit, metric, progress=60, offset=0}: CircularProgressBarProps) => {
     return (
-        <div role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style={{
+        <div role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100" style={{
             // @ts-ignore
             '--value': progress,
             '--offset': offset,

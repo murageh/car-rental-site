@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 export const SearchDropdown = ({id, icon, title, options, selected, setSelected}: {
     id: string,
@@ -8,7 +9,7 @@ export const SearchDropdown = ({id, icon, title, options, selected, setSelected}
     title: string,
     options: string[],
     selected: string,
-    setSelected: any
+    setSelected: (value: string) => void
 }) => {
     return (
         // Icon and dropdown
@@ -38,12 +39,12 @@ export const SearchDropdown = ({id, icon, title, options, selected, setSelected}
     );
 };
 
-export const DatePickerDropdown = ({id, icon, title, selected, setSelected}: {
+export const DatePickerDropdown = ({id, icon, title, defaultValue, onChange}: {
     id: string,
     icon: string,
     title: string,
-    selected: string,
-    setSelected: any
+    defaultValue: string,
+    onChange: (value: string) => void
 }) => {
     return (
         // Icon and dropdown
@@ -60,8 +61,8 @@ export const DatePickerDropdown = ({id, icon, title, selected, setSelected}: {
                     name={id}
                     type="date"
                     className="block w-full py-2 pl-3 pr-10 text-base border-gray-300 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm rounded-md"
-                    defaultValue={selected}
-                    onChange={e => setSelected(e.target.value)}
+                    defaultValue={defaultValue}
+                    onChange={e => onChange(e.target.value)}
                 />
             </div>
         </div>
@@ -78,19 +79,19 @@ export const RedButton = ({children, onClick}: { children: React.ReactNode, onCl
 
 export const AppleStoreButton = () => {
     return (
-        <button className="bg-white text-primary px-2 py-2 rounded w-[160px]">
+        <Link href={'#'} className="bg-white text-primary px-2 py-2 rounded w-[160px]">
             <Image src="/icons/app-store.png" alt="app store" layout='fixed' height={310} width={924}
                    objectFit={'cover'} className={'max-h-full max-w-full object-fill'}/>{' '}
-        </button>
+        </Link>
     );
 }
 
 export const GooglePlayButton = () => {
     return (
-        <button className="bg-white text-primary px-2 py-2 rounded w-[160px]">
+        <Link href={'#'} className="bg-white text-primary px-2 py-2 rounded w-[160px]">
             <Image src="/icons/google-play.png" alt="google play" layout='fixed' height={546}
                    width={168}
                    objectFit={'cover'} className={'max-h-full max-w-full object-fill'}/>
-        </button>
+        </Link>
     );
 }

@@ -15,6 +15,10 @@
 body {
 }
 
+* {
+    /*outline: 1px solid #F73838;*/
+}
+
 body > main > section {
     position: relative;
     min-height: min(100vh, 900px);

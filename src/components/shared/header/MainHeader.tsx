@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {RedButton} from "@/components/shared/inputs/Inputs";
 import {useStickyHeader} from "@/hooks/useStickyHeader";
-import {GrMenu} from "react-icons/gr";
 import {IoClose} from "react-icons/io5";
 import {FaSearch} from "react-icons/fa";
 import {HiMenu} from "react-icons/hi";
@@ -54,9 +53,9 @@ const MainHeader = () => {
                 boxShadow: sticky ? '0 10px 30px rgba(0, 0, 0, 0.1)' : 'none'
             }}
         >
-            <nav className={'hidden w-full md:flex justify-between items-center gap-x-2'}>
+            <nav className={'main-menu hidden w-full md:flex justify-between items-center gap-x-2'}>
                 {/*  Red-colored logo (Autochek) to the left, menu items to the center and 2 action buttons on the right (search button and a login button)  */}
-                <div className={'flex justify-start items-center'}>
+                <div className={'logo flex justify-start items-center'}>
                     <span className={'text-secondary text-2xl font-bold'}>Autochek</span>
                 </div>
                 <div className={'flex justify-center items-center gap-x-2 transition-all ease-in-out'}>
@@ -78,7 +77,7 @@ const MainHeader = () => {
             </nav>
 
             {/*  Mobile menu  */}
-            <nav className={'w-full relative flex md:hidden justify-between items-center'}>
+            <nav className={'mobile-menu w-full relative flex md:hidden justify-between items-center'}>
                 <div className={'flex justify-start items-center'}>
                     <span className={'text-secondary text-2xl font-bold'}>Autochek</span>
                 </div>
@@ -86,7 +85,8 @@ const MainHeader = () => {
                     <button className={'bg-transparent text-white px-2 py-2 rounded'}>
                         <FaSearch size={20} className={''}/>
                     </button>
-                    <button onClick={toggleMenu} className={'bg-transparent text-white px-2 py-2 rounded'}>
+                    <button id={'menu-toggle'} onClick={toggleMenu}
+                            className={'bg-transparent text-white px-2 py-2 rounded'}>
                         {
                             isMenuOpen ?
                                 <IoClose size={20} className={'text-white'}/>
@@ -102,7 +102,8 @@ const MainHeader = () => {
                     <div id={'modalContainer'} className={'fixed top-0 left-0 bottom-0 right-0 w-screen h-screen bg-blueBlack bg-opacity-80 z-20 p-6 flex flex-col justify-center items-start'}>
                         <div className={'bg-blueBlack w-10/12 mx-auto rounded-xl p-4 flex flex-col justify-center items-center'}>
                             <div className={'flex justify-end items-center w-full'}>
-                                <button onClick={toggleMenu} className={'bg-transparent text-white px-2 py-2 rounded'}>
+                                <button id={'menuClose'} onClick={toggleMenu}
+                                        className={'bg-transparent text-white px-2 py-2 rounded'}>
                                     <IoClose size={20}/>
                                 </button>
                             </div>

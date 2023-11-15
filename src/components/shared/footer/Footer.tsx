@@ -4,11 +4,11 @@ import Link from "next/link";
 
 const Footer = () => {
     return (
-        <section className="py-12 bg-blueBlack ignoreMinHeight">
+        <section className="py-12 px-4 bg-blueBlack ignoreMinHeight">
             <div className="wrapper flex justify-between items-center h-auto min-h-auto">
                 <div className={'w-full flex flex-col justify-center items-start'}>
-                    <div className={'w-full flex justify-between gap-x-4'}>
-                        <div className={'flex flex-col justify-center items-start'}>
+                    <div className={'w-full flex flex-col gap-y-4 md:flex-row justify-between gap-x-4'}>
+                        <div className={'flex flex-col mb-6 md:mb-0 justify-center items-start'}>
                             <h2 className="text-left text-white my-4 w-full text-3xl font-bold capitalize">
                                 Car Rental
                             </h2>

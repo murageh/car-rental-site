@@ -40,7 +40,7 @@ export const fetchCars = async (params: any) => {
         error: null,
     };
     // https://api-prod.autochek.africa/v1/inventory/car/search
-    const response = await api().get('inventory/car/search', { params })
+    await api().get('inventory/car/search', {params})
         .then((response) => {
             res = {
                 data: response.data.cars,
@@ -62,7 +62,7 @@ export const fetchCars = async (params: any) => {
 
 export const fetchCarDetails = async (id: number) => {
     //  https://api.staging.myautochek.com/v1/inventory/car/{carId}
-    const response = await api().get(`inventory/car/${id}`)
+    await api().get(`inventory/car/${id}`)
         .then((response) => {
             return response;
         })
@@ -77,7 +77,7 @@ export const fetchCarDetails = async (id: number) => {
 
 export const fetchCarMedia = async (id: number) => {
     //  https://api.staging.myautochek.com/v1/inventory/car_media?carId={carId}
-    const response = await api().get(`inventory/car_media?carId=${id}`)
+    await api().get(`inventory/car_media?carId=${id}`)
         .then((response) => {
             return response;
         })

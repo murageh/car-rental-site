@@ -11,7 +11,7 @@ const MakeButton = ({make, selected, onClick}: { make: Make, selected: boolean, 
         // Image then text
         <div className={'p-2'}>
             <button
-                className={`flex justify-between items-center gap-x-2 px-4 py-2 rounded-lg text-sm font-medium shadow-lg hover:scale-110 hover:font-bold hover:bg-secondary ${selected ? 'bg-secondary text-white' : 'bg-white text-black'} ${selected ? 'scale-110' : 'scale-100'} ${selected ? 'font-bold' : 'font-medium'}`}
+                className={`make-button ${selected ? 'selected' : ''} flex justify-between items-center gap-x-2 px-4 py-2 rounded-lg text-sm font-medium shadow-lg hover:scale-110 hover:font-bold hover:bg-secondary ${selected ? 'bg-secondary text-white' : 'bg-white text-black'} ${selected ? 'scale-110' : 'scale-100'} ${selected ? 'font-bold' : 'font-medium'}`}
                 onClick={onClick}
             >
                 <div className={'bg-white rounded-full p-1 h-6 w-6'}>
@@ -26,9 +26,8 @@ const MakeButton = ({make, selected, onClick}: { make: Make, selected: boolean, 
 
 // bunch of buttons generated from an array of strings
 export const MakeFilter = ({loading, options, selected, onSelect}: { loading: boolean, options: Make[], selected?: Make, onSelect: (option: Make) => void }) => {
-    console.log('selected', selected);
     return (
-        <div className="my-4 flex justify-center items-center gap-x-2">
+        <div className="make-filter my-4 flex flex-wrap gap-y justify-center items-center gap-x-2 max-w-full">
             {options.slice(0, 6).map(option => (
                 <MakeButton
                     key={option.id}
@@ -64,11 +63,11 @@ export const MakeFilter = ({loading, options, selected, onSelect}: { loading: bo
 
 export const CarTile = ({car}: { car: CarDetails }) => {
     return (
-        <div className="w-full h-full p-2 md:w-4/12 lg:w-3/12">
+        <div className="car-tile w-full h-full p-2 md:w-4/12 lg:w-3/12">
             <div className="h-full bg-white rounded-xl shadow-xl w-full flex flex-col px-4 py-8 gap-y-2">
                 <div className="w-full mb-4 h-[200px] bg-gray-300 rounded-lg">
                     <Image src={car.imageUrl} alt={'audi'} height={200} width={500}
-                           className={'h-full w-full object-cover rounded-lg'}/>
+                           className={'car-img h-full w-full object-cover rounded-lg'}/>
                 </div>
 
                 {/*  name  */}
@@ -105,7 +104,8 @@ export const CarTile = ({car}: { car: CarDetails }) => {
 
                 {/*  View more info on the website  */}
                 <div className={'flex justify-start gap-x-2 gap-y-2 items-center flex-wrap'}>
-                    <Link href={car.websiteUrl} target={'_blank'} className={'px-4 py-2 rounded-lg text-sm font-medium shadow-2xl bg-info text-white border border-transparent hover:bg-white hover:text-info hover:shadow-none hover:border-info'}>
+                    <Link href={car.websiteUrl} target={'_blank'}
+                          className={'px-4 py-2 rounded-lg text-sm font-medium shadow-2xl bg-info text-white border border-transparent hover:bg-white hover:text-info hover:shadow-none hover:border-info'}>
                         <span className={'font-bold'}>
                             Visit car website{' '}&nbsp;
                             <FaExternalLinkAlt className={'inline-block'}/>
@@ -119,7 +119,7 @@ export const CarTile = ({car}: { car: CarDetails }) => {
 
 export const CarTileList = ({cars}: { cars: CarDetails[] }) => {
     return (
-        <div className="w-full flex justify-center items-center flex-wrap gap-x-4 gap-y-4">
+        <div className="car-tile-list w-full flex justify-center items-center flex-wrap gap-x-4 gap-y-4">
             {cars.map(car => (
                 <CarTile key={car.id} car={car}/>
             ))}

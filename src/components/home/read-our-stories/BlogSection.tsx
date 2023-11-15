@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from "next/image";
 
-import honda from '../../../assets/images/backgrounds/honda.png';
-import mercedes from '../../../assets/images/backgrounds/mercedes.png';
-import rollsRoyce from '../../../assets/images/backgrounds/rolls-royce.png';
+import honda from '@/assets/images/backgrounds/honda.png';
+import mercedes from '@/assets/images/backgrounds/mercedes.png';
+import rollsRoyce from '@/assets/images/backgrounds/rolls-royce.png';
 import Link from "next/link";
 
 const BlogSection = () => {
@@ -11,7 +11,7 @@ const BlogSection = () => {
         <section className="py-12 bg-darkWhite">
             <div className="wrapper flex flex-col justify-center items-center">
                 <div className="w-full p-y-4 flex flex-col items-center my-6">
-                    <h2 className="my-4 mx-auto text-5xl font-bold w-6/12 text-center capitalize balance">
+                    <h2 className="my-4 mx-auto text-5xl font-bold w-full md:w-6/12 text-center capitalize balance">
                         Read our stories
                     </h2>
                 </div>
@@ -75,7 +75,7 @@ const BlogsList = () => {
 
 const BlogTile = ({blog}: BlogTileProps) => {
     return (
-        <div className="w-full p-4 md:w-4/12 lg:w-4/12">
+        <div className="blog-tile w-full p-4 md:w-4/12 lg:w-4/12">
             <div className="bg-white rounded-xl shadow-xl w-full flex flex-col px-8 py-10 gap-y-2">
                 <div className={'relative h-48 w-full bg-darkWhite p-4'}>
                     <Image src={blog.imageUrl} alt={blog.title} height={200} width={300}

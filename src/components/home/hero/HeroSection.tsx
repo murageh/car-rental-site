@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from "next/image";
 
 // images
 import heroImg from '../../../assets/images/backgrounds/honda.png';
@@ -26,7 +25,7 @@ const HeroSection = () => {
 
                 {/*  Absolute image in the bottom left corner, with only the right half being visible  */}
                 <div
-                    className="z-[0] relative w-11/12 md:w-8/12 md:absolute md:bottom-0 md:left-[-10%] h-full bg-contain bg-no-repeat bg-[bottom_-10%_left_-50%] bg-blend-multiply"
+                    className="heroimg z-[0] relative w-11/12 md:w-8/12 md:absolute md:bottom-0 md:left-[-10%] h-full bg-contain bg-no-repeat bg-[bottom_-10%_left_-50%] bg-blend-multiply"
                     style={{
                         backgroundImage: `url(${heroImg.src})`,
                     }}

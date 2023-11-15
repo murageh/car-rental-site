@@ -73,16 +73,16 @@ const SearchDiv = ({loading, setCars}:{ loading:boolean, setCars: (cars: CarDeta
     }
 
     return (
-        <div className="flex items-center justify-between w-8/12 mx-auto my-6">
+        <div className="flex items-center justify-between w-11/12 md:w-8/12 mx-auto my-6">
             <div className="bg-white rounded-lg shadow-2xl w-full">
-                <div className="flex justify-between items-center px-4 py-2">
+                <div className="w-full md:w-auto flex flex-wrap justify-between items-center px-4 py-2 gap-y-2">
                     <SearchDropdown id={'location'} icon={'/icons/map_pin.svg'} title={'location'}
                                     options={['Nairobi', 'Mombasa', 'Kisumu', 'Nakuru', 'Eldoret', 'Thika']}
                                     selected={'Nairobi'} setSelected={handleLocationChange}/>
                     <DatePickerDropdown id={'pickUpDate'} icon={'/icons/calendar_blank.svg'} title={'Pick up date'}
-                                        selected={''} setSelected={handlePickUpDateChange}/>
+                                        defaultValue={''} onChange={handlePickUpDateChange}/>
                     <DatePickerDropdown id={'returnDate'} icon={'/icons/calendar_check.svg'} title={'Return date'}
-                                        selected={''} setSelected={handleReturnDateChange}/>
+                                        defaultValue={''} onChange={handleReturnDateChange}/>
 
                     <RedButton onClick={handleSearch}>Search</RedButton>
                 </div>
@@ -101,7 +101,7 @@ const FilterSection = ({loading, makes, setMakes, cars, setCars}:{ loading:boole
     return (
         <div className="w-full p-y-4 flex flex-col items-center my-6">
             <span className="my-4">Best Services</span>
-            <h2 className="my-4 mx-auto text-3xl font-bold w-6/12 text-center capitalize balance">
+            <h2 className="my-4 mx-auto text-3xl font-bold w-full md:w-6/12 text-center capitalize balance">
                 Explore our top deals from Top Rated Dealers
             </h2>
 

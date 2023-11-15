@@ -5,7 +5,7 @@ import {FaStar} from "react-icons/fa";
 
 const Testimonials = () => {
     return (
-        <section className="py-12 bg-blueBlack flex flex-col justify-center">
+        <section className="py-12 px-2 bg-blueBlack flex flex-col justify-center">
             <div className="wrapper flex flex-col md:flex-row justify-between gap-x-2 gap-y-4 items-center">
                 <div className="w-full md:w-6/12 p-y-4 flex flex-col items-start my-6">
                     <span className="my-4 text-darkWhite">Testimonials</span>
@@ -17,17 +17,17 @@ const Testimonials = () => {
                         testimonials from our clients
                     </p>
 
-                    <blockquote className="relative p-4 my-4 font-normal text-lg text-white">
+                    <blockquote className="review relative p-4 my-4 font-normal text-lg text-white">
                         <p className="mb-4">
                             “There are amazing people working here who are down-to-earth and willing to work with
                             anyone!
                             Their priority is to take care of their own and make sure sure satisfied!”
                         </p>
                         {/* rating */}
-                        <div className="flex items-center justify-start gap-x-2 my-10">
+                        <div className="stars flex items-center justify-start gap-x-2 my-10">
                             {
                                 Array(5).fill(0).map((_, i) => (
-                                    <FaStar key={i} className={'text-secondary'}/>
+                                    <FaStar key={i} className={'star text-secondary'}/>
                                 )) // 5 stars
                             } {/* end rating */} 5.0
                         </div>
