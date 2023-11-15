@@ -6,7 +6,7 @@ import {FaStar} from "react-icons/fa";
 const Testimonials = () => {
     return (
         <section className="py-12 bg-blueBlack flex flex-col justify-center">
-            <div className="wrapper flex flex-col md:flex-row justify-between items-center">
+            <div className="wrapper flex flex-col md:flex-row justify-between gap-x-2 gap-y-4 items-center">
                 <div className="w-full md:w-6/12 p-y-4 flex flex-col items-start my-6">
                     <span className="my-4 text-darkWhite">Testimonials</span>
                     <h2 className="text-left text-white my-4 w-full text-5xl font-bold capitalize">

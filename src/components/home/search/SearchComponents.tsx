@@ -64,8 +64,8 @@ export const MakeFilter = ({loading, options, selected, onSelect}: { loading: bo
 
 export const CarTile = ({car}: { car: CarDetails }) => {
     return (
-        <div className="w-full p-4 md:w-4/12 lg:w-3/12">
-            <div className="bg-white rounded-xl shadow-xl w-full flex flex-col p-2 gap-y-2">
+        <div className="w-full h-full p-2 md:w-4/12 lg:w-3/12">
+            <div className="h-full bg-white rounded-xl shadow-xl w-full flex flex-col px-4 py-8 gap-y-2">
                 <div className="w-full mb-4 h-[200px] bg-gray-300 rounded-lg">
                     <Image src={car.imageUrl} alt={'audi'} height={200} width={500}
                            className={'h-full w-full object-cover rounded-lg'}/>
@@ -75,13 +75,13 @@ export const CarTile = ({car}: { car: CarDetails }) => {
                 <span className={'text-lg font-medium'}>{car.carName}</span>
 
                 {/*  Color, Body type, Engine type:Type,   */}
-                <div className={'flex justify-start gap-x-2 items-center flex-wrap'}>
+                <div className={'flex justify-start gap-x-2 gap-y-2 items-center flex-wrap'}>
                     <span
                         className={'text-base font-normal'}>{car.exteriorColor} {car.bodyType?.name} &bull; {car.engineType}</span>
                 </div>
 
                 {/*  price, town  */}
-                <div className={'flex justify-start gap-x-2 items-center flex-wrap'}>
+                <div className={'flex justify-start gap-x-2 gap-y-2 items-center flex-wrap'}>
                     <Chip title={'Location'} className={'px-2 py-1 rounded-full'} size={'md'}
                           color={'primary'}>
                         <FaMapMarkerAlt className={'mr-1'}/>{' '}
@@ -94,7 +94,7 @@ export const CarTile = ({car}: { car: CarDetails }) => {
                 </div>
 
                 {/*  Transmission, Fuel type, Drive type  */}
-                <div className={'flex justify-start gap-x-2 items-center flex-wrap'}>
+                <div className={'flex justify-start gap-x-2 gap-y-2 items-center flex-wrap'}>
                     <Chip title={'Fuel type'} className={'px-2 py-1 rounded-full'} size={'md'}
                           color={'primary'}>{car.fuelType} {car.ccMeasurement ? ' - ' + car.ccMeasurement + 'cc' : ''}</Chip>
                     <Chip title={'Transmission'} className={'px-2 py-1 rounded-full'} size={'md'}
@@ -104,7 +104,7 @@ export const CarTile = ({car}: { car: CarDetails }) => {
                 </div>
 
                 {/*  View more info on the website  */}
-                <div className={'flex justify-start gap-x-2 items-center flex-wrap'}>
+                <div className={'flex justify-start gap-x-2 gap-y-2 items-center flex-wrap'}>
                     <Link href={car.websiteUrl} target={'_blank'} className={'px-4 py-2 rounded-lg text-sm font-medium shadow-2xl bg-info text-white border border-transparent hover:bg-white hover:text-info hover:shadow-none hover:border-info'}>
                         <span className={'font-bold'}>
                             Visit car website{' '}&nbsp;
@@ -119,7 +119,7 @@ export const CarTile = ({car}: { car: CarDetails }) => {
 
 export const CarTileList = ({cars}: { cars: CarDetails[] }) => {
     return (
-        <div className="w-full flex justify-center items-center flex-wrap gap-x-4">
+        <div className="w-full flex justify-center items-center flex-wrap gap-x-4 gap-y-4">
             {cars.map(car => (
                 <CarTile key={car.id} car={car}/>
             ))}

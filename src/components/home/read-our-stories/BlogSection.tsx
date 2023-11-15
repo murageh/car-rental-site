@@ -80,7 +80,7 @@ const BlogTile = ({blog}: BlogTileProps) => {
                 <div className={'relative h-48 w-full bg-darkWhite p-4'}>
                     <Image src={blog.imageUrl} alt={blog.title} height={200} width={300}
                            className={'rounded-xl h-full w-full object-cover'}/>
-                    <div className={'absolute bottom-2 left-2 bg-black bg-opacity-80 rounded-xl p-2'}>
+                    <div className={'absolute bottom-2 right-2 bg-black bg-opacity-80 rounded-xl p-2'}>
                         <span className={'text-white text-xs'}>{blog.date}</span>
                     </div>
                 </div>

@@ -2,21 +2,49 @@
 import React from 'react';
 import {DatePickerDropdown, RedButton, SearchDropdown} from "@/components/shared/inputs/Inputs";
 import {CarTileList, MakeFilter} from "@/components/home/search/SearchComponents";
-import {carDetails, Make} from "@/components/home/search/models";
-import {fetchMakes} from "@/services";
+import {CarDetails, carDetails, Make} from "@/components/home/search/models";
+import {fetchCars, fetchMakes} from "@/services";
 
 const SearchSection = () => {
+    // TODO: Engage endpoint to fetch cars
+    // Endpoint does not have query params to search by, so we use sample data
+    const [cars, setCars] = React.useState(carDetails.slice(0, 3));
+    const [makes, setMakes] = React.useState<Make[]>([]);
+    const [loading, setLoading] = React.useState<boolean>(false);
+    const [{total, currentPage, pageSize}, setPagination] = React.useState({
+        total: 0,
+        currentPage: 1,
+        pageSize: 20,
+    });
+    const pagination = React.useMemo(
+        () => ({
+            total,
+            currentPage,
+            pageSize,
+        }),
+        [total, currentPage, pageSize]
+    );
+
+    React.useEffect(() => {
+        setLoading(true);
+        fetchMakes().then(res => {
+            setLoading(false);
+            setMakes(res?.data ?? []);
+            setPagination(res?.pagination ? res?.pagination : pagination);
+        });
+    }, [pagination]);
+
     return (
         <section className="py-12 bg-darkWhite">
             <div className="wrapper flex flex-col justify-center items-center">
-                <SearchDiv/>
-                <FilterSection/>
+                <SearchDiv loading={loading} setCars={setCars}/>
+                <FilterSection loading={loading} makes={makes} setMakes={setMakes} cars={cars} setCars={setCars}/>
             </div>
         </section>
     );
 };
 
-const SearchDiv = () => {
+const SearchDiv = ({loading, setCars}:{ loading:boolean, setCars: (cars: CarDetails[]) => void }) => {
     const [location, setLocation] = React.useState<string>('');
     const [pickUpDate, setPickUpDate] = React.useState<string>('');
     const [returnDate, setReturnDate] = React.useState<string>('');
@@ -39,9 +67,9 @@ const SearchDiv = () => {
         // Assuming the endpoint is working, the query params would be:
         // location, pickUpDate, returnDate
         // Below is sample code to handle the search with the above query params
-        // fetchCars(location, pickUpDate, returnDate).then(res => {
-        //     console.log(res);
-        // });
+        fetchCars({location, pickUpDate, returnDate}).then(res => {
+            setCars(res?.data ?? []);
+        });
     }
 
     return (
@@ -63,37 +91,12 @@ const SearchDiv = () => {
     );
 }
 
-const FilterSection = () => {
-    const [makes, setMakes] = React.useState<Make[]>([]);
-    const [loading, setLoading] = React.useState<boolean>(false);
-    const [{total, currentPage, pageSize}, setPagination] = React.useState({
-        total: 0,
-        currentPage: 1,
-        pageSize: 20,
-    });
-    const pagination = React.useMemo(
-        () => ({
-            total,
-            currentPage,
-            pageSize,
-        }),
-        [total, currentPage, pageSize]
-    );
+const FilterSection = ({loading, makes, setMakes, cars, setCars}:{ loading:boolean, makes: Make[], setMakes: (makes: Make[]) => void, cars: CarDetails[], setCars: (cars: CarDetails[]) => void }) => {
     const [selectedMake, setSelectedMake] = React.useState<Make>();
 
     const onMakeSelect = (make: Make) => {
         setSelectedMake(make);
-        console.log(make);
     }
-
-    React.useEffect(() => {
-        setLoading(true);
-        fetchMakes().then(res => {
-            setLoading(false);
-            setMakes(res?.data ?? []);
-            setPagination(res?.pagination ? res?.pagination : pagination);
-        });
-    }, [pagination]);
 
     return (
         <div className="w-full p-y-4 flex flex-col items-center my-6">
@@ -103,9 +106,7 @@ const FilterSection = () => {
             </h2>
 
             <MakeFilter loading={loading} options={makes} selected={selectedMake} onSelect={onMakeSelect}/>
-            {/* TODO: Engage endpoint to fetch cars */}
-            {/* Endpoint does not have query params to search by, so we use sample data */}
-            <CarTileList cars={carDetails}/>
+            <CarTileList cars={cars}/>
         </div>
     );
 }

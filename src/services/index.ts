@@ -34,18 +34,30 @@ export const fetchMakes = async () => {
 }
 
 export const fetchCars = async (params: any) => {
+    let res:MakeResponse = {
+        data: null,
+        pagination: null,
+        error: null,
+    };
     // https://api-prod.autochek.africa/v1/inventory/car/search
     const response = await api().get('inventory/car/search', { params })
         .then((response) => {
-            return response;
+            res = {
+                data: response.data.cars,
+                pagination: undefined,
+                error: null,
+            };
         })
         .catch((error) => {
             console.log(error);
-            return {
+            res = {
                 data: [],
+                pagination: null,
                 error: error,
             }
         });
+
+    return res;
 }
 
 export const fetchCarDetails = async (id: number) => {

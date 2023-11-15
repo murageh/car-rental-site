@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
                                 }
                             ].map((item, index) => (
                                 <div key={index} className="flex items-center justify-between gap-x-2 my-4">
-                                    <div className="flex justify-center items-center bg-secondary rounded-full p-3">
+                                    <div className="flex justify-center items-center bg-secondary rounded-full p-3 mr-3">
                                         {item.icon}
                                     </div>
                                     <div className="flex flex-col items-start justify-center gap-y-2">
