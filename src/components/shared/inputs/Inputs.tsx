@@ -70,7 +70,7 @@ export const DatePickerDropdown = ({id, icon, title, selected, setSelected}: {
 
 export const RedButton = ({children, onClick}: { children: React.ReactNode, onClick?: React.MouseEventHandler<HTMLButtonElement> }) => {
     return (
-        <button className={'bg-secondary text-white px-4 py-2 rounded ml-4'}
+        <button className={'bg-secondary text-white px-4 py-2 rounded'}
                 onClick={onClick}
         >{children}</button>
     );
@@ -78,7 +78,7 @@ export const RedButton = ({children, onClick}: { children: React.ReactNode, onCl
 
 export const AppleStoreButton = () => {
     return (
-        <button className="bg-white text-primary px-2 py-2 rounded w-[120px]">
+        <button className="bg-white text-primary px-2 py-2 rounded w-[160px]">
             <Image src="/icons/app-store.png" alt="app store" layout='fixed' height={310} width={924}
                    objectFit={'cover'} className={'max-h-full max-w-full object-fill'}/>{' '}
         </button>
@@ -87,7 +87,7 @@ export const AppleStoreButton = () => {
 
 export const GooglePlayButton = () => {
     return (
-        <button className="bg-white text-primary px-2 py-2 rounded w-[120px]">
+        <button className="bg-white text-primary px-2 py-2 rounded w-[160px]">
             <Image src="/icons/google-play.png" alt="google play" layout='fixed' height={546}
                    width={168}
                    objectFit={'cover'} className={'max-h-full max-w-full object-fill'}/>

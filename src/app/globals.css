@@ -39,6 +39,13 @@ body > main > section > div.wrapper {
     margin-right: auto;
 }
 
+/* small screens */
+@media (max-width: 768px) {
+    body > main > section > div.wrapper {
+        padding: 2rem 1rem;
+    }
+}
+
 .balance{
     text-wrap: balance;
 }
